@@ -2,7 +2,7 @@ connector_lists:
 - name: fms
   use: true
 - name: gui
-  use: false
+  use: true
 - name: joystick
   use: true
 - name: motions
@@ -15,6 +15,5 @@ connector_lists:
   use: true
 - name: manipulators
   use: false
-- name: power_system
-  use: true
+
 
