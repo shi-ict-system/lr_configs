@@ -7,5 +7,3 @@ connector_lists:
   use: false
 - name: remote_io
   use: false
-- name: manipulators
-  use: false
