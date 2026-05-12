@@ -1,5 +1,5 @@
 remaining:
-  warning: 40
-  error: 10
+  warning: 40 # 40
+  error: 10  # 10 
   critical: 5
 
