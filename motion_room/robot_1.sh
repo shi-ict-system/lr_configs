@@ -1,5 +1,3 @@
-
-
 #!/bin/bash
 
 set -e  # 오류 발생 시 스크립트 중단
@@ -16,17 +14,7 @@ CONFIG_PATH="./configs/robot_1"
 echo ">>> Robot 1 실행 중: ${BINARY_PATH} ${CONFIG_PATH}"
 
 # 실행
+#$BINARY_PATH $CONFIG_PATH
 
-#$BINARY_PATH $CONFIG_PATH &> ./cout/robot_1.cs
-
-$BINARY_PATH $CONFIG_PATH
-
-
-
-
-
-## robot 1
-#../../overload/build/app_robot/src/apps/app_robot ./configs/robot_1 
-
-#../../overload/build/app_robot/src/apps/app_robot ./configs/robot_1 &> ./cout/robot_1.log
-
+# 실행 -> cout 에
+$BINARY_PATH $CONFIG_PATH  &> ./cout/robot_1.log

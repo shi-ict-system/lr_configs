@@ -2,7 +2,7 @@ list:
 - id: [100015, 100001]
   keyword: docking_to_charger
   level: info
-  timeout: 5000
+  timeout: 5
   content: 자동 충전 시작.
   description:
     korean: 자동 충전이 시작되었습니다.
@@ -13,7 +13,7 @@ list:
 - id: [100015, 100002]
   keyword: fully_charged
   level: info
-  timeout: 5000
+  timeout: 5
   content: 배터리 가득.
   description:
     korean: 배터리가 가득찼습니다.
@@ -24,7 +24,7 @@ list:
 - id: [100015, 100003]
   keyword: undocking_from_charger_start
   level: info
-  timeout: 5000
+  timeout: 5
   content: 자동 충전 해제 시작.
   description:
     korean: 자동 충전이 해제가 시작되었습니다
@@ -35,7 +35,7 @@ list:
 - id: [100015, 100004]
   keyword: undocking_from_charger_end
   level: info
-  timeout: 5000
+  timeout: 5
   content: 자동 충전 해제 완료.
   description:
     korean: 자동 충전이 해제가 완료 되었습니다..
