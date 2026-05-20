@@ -1,0 +1,48 @@
+node_bound:
+  minimum: 0.020 # m
+  maximum: 0.150 # m
+  parity:  0.005 # m
+
+approach_destination:
+  speed:             0.10 # m/s
+  distance_complete: 0.05 # m
+  radius:            0.10 # m
+
+at_target:
+  approach:
+    radius: 0.10          # m
+    speed: 0.10           # m/s
+    margin_before: 0.05   # m 
+    margin_after: 0.10    # m
+  align:
+    angle_speed_min: [10.0, 5.0]    # ° °/s
+    angle_speed_max: [50.0, 30.0]   # ° °/s
+    speed: 10.0       # °/s
+    tolerance: 0.5    # °
+    margin: 0.1      # ° (> -tolerance) -0.1
+
+
+motion:
+  reference_angle:
+    straight: 0.0
+    curve: 45.0
+  threshold_angle:
+    straight: 15.0    # °
+    curve: 20.0       # °
+    inverse: 170.0    # °
+  threshold_error:
+    normal: 0.3
+    angle: 5.0
+
+  speed_low: 0.15        # 0.3
+  speed_high: 0.8       # 0.8
+  gain_set:
+    normal:
+      speed_low: 8.0    # 8.0  4.0
+      speed_high: 0.5   # 0.5  0.5
+    angle:
+      speed_low: 1.5    # 1.0  0.8
+      speed_high: 2.1   # 2.1  2.1
+
+  speed_rotation: 15 # °/s
+  protection_overshoot: 0.85  
