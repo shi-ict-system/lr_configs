@@ -1,6 +1,6 @@
 driver type: differential
 wheel:
-  base: 0.5           # m 
+  base: 0.55          # m 
   radius: 0.08        # m
 
 
@@ -23,4 +23,4 @@ constraints:
   max_icc_radius: -1.0          # m   : not used
   max_wheel_speed:  1.2         # m/s
   max_linear_speed: 1.0         # m/s
-  max_angular_speed: 90         # ˚/s
+  max_angular_speed: 40         # ˚/s

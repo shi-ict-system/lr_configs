@@ -1296,7 +1296,7 @@ list:
     enable_sensors: 15
     cost_time: 0
   - id_from_to: [1052, 1104]
-    accel_speed: [0.5, 0.5]
+    accel_speed: [0.5, -0.5]
     motion: 1
     dof: 1
     safety_zone: 13
@@ -1310,7 +1310,7 @@ list:
     enable_sensors: 15
     cost_time: 0
   - id_from_to: [1053, 1105]
-    accel_speed: [0.5, 0.5]
+    accel_speed: [0.5, -0.5]
     motion: 1
     dof: 1
     safety_zone: 13
@@ -1324,7 +1324,7 @@ list:
     enable_sensors: 15
     cost_time: 0
   - id_from_to: [1054, 1106]
-    accel_speed: [0.5, 0.5]
+    accel_speed: [0.5, -0.5]
     motion: 1
     dof: 1
     safety_zone: 13
