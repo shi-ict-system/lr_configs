@@ -13,3 +13,7 @@ connector_lists:
   use: true
 - name: load_handler
   use: true
+- name: manipulators
+  use: false
+- name: power_system
+  use: true
