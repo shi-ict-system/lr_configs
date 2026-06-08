@@ -6,7 +6,7 @@ node_bound:
 at_target:
   approach:
     radius: 0.15 #m
-    speed:  0.05 # m/s
+    speed:  0.03 # m/s
     margin: -0.005 #m
     sensing_start: -0.20 #m
     sensing_end:  0.10 #m
