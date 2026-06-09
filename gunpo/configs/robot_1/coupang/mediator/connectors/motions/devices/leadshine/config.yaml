@@ -1,13 +1,8 @@
-######################################
-# left motor 0번으로 는 cw 방향일 때 엔코더 +값이 나와야 한다.
-#
-######################################
-
 comms:
   address: /dev/pcanusb32
   id:
-    left: 0
-    right: 1
+    left: 1
+    right: 2
 
 
 ######################################
@@ -19,8 +14,8 @@ mechanical:
 
 ######################################
 # direction
-# 0 : cw
-# 1 : ccw
+# 0 : forward
+# 1 : reverse
 ######################################
 motors:
   left:
@@ -28,4 +23,4 @@ motors:
     direction: 1
   right:
     count_per_revolution: 10000
-    direction: 1
+    direction: 0
