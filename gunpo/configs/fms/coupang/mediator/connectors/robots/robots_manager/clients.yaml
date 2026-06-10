@@ -1,26 +1,37 @@
 timer: 20 #ms
 thread_pool: 3 # >0
 server_list:
-- id: [0,111]
-  use: true
-  ip: 127.0.0.1
-  port: 52001
-  period: 30 #ms
 # - id: [0,111]
 #   use: true
-#   ip: 192.168.100.12
+#   ip: 127.0.0.1
 #   port: 52001
-#   period: 30 #ms  
+#   period: 30 #ms
+
+- id: [0,111]
+  use: true
+  ip: 192.168.100.12
+  port: 52001
+  period: 30 #ms  
+
 - id: [0,222]
   use: true
-  ip: 127.0.0.1
+  ip: 192.168.100.96
   port: 52002
+  type: arms
   period: 30 #ms
-- id: [0,333]
-  use: true
-  ip: 127.0.0.1
-  port: 52003
-  period: 30 #ms
+
+# - id: [0,222]
+#   use: true
+#   ip: 127.0.0.1
+#   port: 52002
+#   period: 30 #ms
+
+# - id: [0,333]
+#   use: true
+#   ip: 127.0.0.1
+#   port: 52003
+#   period: 30 #ms
+  
 # - id: [0,444]
 #   use: true
 #   ip: 127.0.0.1
