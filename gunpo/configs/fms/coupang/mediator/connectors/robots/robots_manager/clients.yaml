@@ -17,7 +17,6 @@ server_list:
   use: true
   ip: 192.168.100.96
   port: 52002
-  type: arms
   period: 30 #ms
 
 # - id: [0,222]

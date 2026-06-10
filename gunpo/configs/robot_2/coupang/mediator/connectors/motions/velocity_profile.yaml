@@ -1,6 +1,6 @@
 driver type: differential
 wheel:
-  base: 0.5           # m 
+  base: 0.470          # m 
   radius: 0.08        # m
 
 

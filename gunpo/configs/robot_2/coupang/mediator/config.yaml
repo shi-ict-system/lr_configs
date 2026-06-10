@@ -4,7 +4,7 @@ connector_lists:
 - name: gui
   use: false
 - name: joystick
-  use: false
+  use: true
 - name: motions
   use: true
 - name: localizers
@@ -12,8 +12,9 @@ connector_lists:
 - name: safety_plc
   use: true
 - name: load_handler
-  use: true
+  use: false
 - name: manipulators
   use: false
 - name: power_system
   use: true
+

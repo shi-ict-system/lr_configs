@@ -1,2 +1,13 @@
 device:
-  type: 2
+  type: 1
+
+
+
+
+
+##########################
+# driver type
+# 0 : empty
+# 1 : sigmatec
+# 2 : rovify
+##########################
