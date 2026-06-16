@@ -5,22 +5,22 @@ server_list:
 #   use: true
 #   ip: 127.0.0.1
 #   port: 52001
-#   period: 30 #ms
+#   period: 50 #ms
 # - id: [0,222]
 #   use: true
 #   ip: 127.0.0.1
 #   port: 52002
-#   period: 30 #ms
+#   period: 50 #ms
 - id: [0,111]
   use: true
   ip: 192.168.100.12
   port: 52001
-  period: 30 #ms  
+  period: 50 #ms  
 - id: [0,222]
   use: true
   ip: 192.168.100.96
   port: 52002
-  period: 30 #ms
+  period: 50 #ms
 
 
 
