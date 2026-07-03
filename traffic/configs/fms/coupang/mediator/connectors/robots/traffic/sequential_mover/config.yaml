@@ -1,0 +1,43 @@
+entry_margin_nodes: 3
+
+table_speed_occupied:
+  node_current: 0.0
+  node_next:  0.0
+  node_2: 0.3
+  node_3: 0.8
+  node_4: 1.3
+  node_5: 1.8
+
+table_speed_free:
+  node_current: 10.0
+  node_next:  10.0
+  node_2: 10.0
+  node_3: 10.0
+  node_4: 10.0
+  node_5: 10.0
+
+list_node_group:
+  - [1112]
+  - [1113]
+  - [1040]
+  - [1045]
+  - [1036]
+  - [1001]
+  - [1011,1010,1004,1005]
+  - [1007]
+  - [1022]
+  - [1030]
+  - [1027]
+  - [1048]
+  - [1077]
+
+
+
+
+
+
+
+
+
+
+
