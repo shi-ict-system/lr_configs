@@ -7,21 +7,21 @@ server_list:
   port: 52001
   period: 30 #ms
 
-# - id: [0,222]
-#   use: true
-#   ip: 127.0.0.1
-#   port: 52002
-#   period: 30 #ms
-# - id: [0,333]
-#   use: true
-#   ip: 127.0.0.1
-#   port: 52003
-#   period: 30 #ms
-# - id: [0,444]
-#   use: true
-#   ip: 127.0.0.1
-#   port: 52004
-#   period: 30 #ms
+- id: [0,222]
+  use: true
+  ip: 127.0.0.1
+  port: 52002
+  period: 30 #ms
+- id: [0,333]
+  use: true
+  ip: 127.0.0.1
+  port: 52003
+  period: 30 #ms
+- id: [0,444]
+  use: true
+  ip: 127.0.0.1
+  port: 52004
+  period: 30 #ms
 # - id: [0,555]
 #   use: true
 #   ip: 127.0.0.1

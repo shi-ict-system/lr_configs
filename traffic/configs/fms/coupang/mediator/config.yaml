@@ -2,7 +2,7 @@ connector_lists:
 - name: robots
   use: true
 - name: gui
-  use: false
+  use: true
 - name: wms
   use: false
 - name: remote_io
