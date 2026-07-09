@@ -6,11 +6,11 @@ server_list:
   ip: 127.0.0.1
   port: 52001
   period: 30 #ms
-# - id: [0,222]
-#   use: true
-#   ip: 127.0.0.1
-#   port: 52002
-#   period: 30 #ms
+- id: [0,222]
+  use: true
+  ip: 127.0.0.1
+  port: 52002
+  period: 30 #ms
 # - id: [0,333]
 #   use: true
 #   ip: 127.0.0.1
