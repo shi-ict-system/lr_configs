@@ -2,6 +2,8 @@ modules:
   - name: speed_limiter
     enable: true
   - name: sequential_mover
-    enable: false
+    enable: true
   - name: traffic_signal
     enable: false
+
+    # true
