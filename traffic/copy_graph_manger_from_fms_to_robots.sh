@@ -9,7 +9,7 @@ if [ ! -d "$SRC" ]; then
     exit 1
 fi
 
-for i in $(seq 1 20); do
+for i in $(seq 1 12); do
     DEST="$SCRIPT_DIR/configs/robot_${i}/coupang/mediator/graph_manager"
     mkdir -p "$DEST"
     cp -rf "$SRC/." "$DEST/"

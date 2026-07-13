@@ -9,7 +9,7 @@ cd "$(dirname "$0")"
 BINARY_PATH="/opt/drone/bin/app_robot"
 
 # 2. 설정 경로
-CONFIG_PATH="./configs/robot_20"
+CONFIG_PATH="./configs/robot_12"
 
 echo ">>> Robot 12 실행 중: ${BINARY_PATH} ${CONFIG_PATH}"
 
