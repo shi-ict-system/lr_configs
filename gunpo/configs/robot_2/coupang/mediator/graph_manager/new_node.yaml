@@ -1,13 +1,5 @@
-total_number: 51
+total_number: 43
 list:
-  - id: 1
-    type: 1
-    pose: [1, 5.5, 0]
-    radius_speed_accel: [0.1, 0.35, 0.35]
-    map_name: conveyor_map
-    localizer_main_sub: [1, 0]
-    storage_level_unload_load:
-      - [100, 100]
   - id: 2
     type: 1
     pose: [2.5, 6.5, 0]
@@ -24,35 +16,11 @@ list:
     localizer_main_sub: [1, 0]
     storage_level_unload_load:
       - [100, 100]
-  - id: 4
-    type: 1
-    pose: [1, 8.5, 0]
-    radius_speed_accel: [0, 0.35, 0.35]
-    map_name: conveyor_map
-    localizer_main_sub: [1, 0]
-    storage_level_unload_load:
-      - [100, 100]
-  - id: 5
-    type: 1
-    pose: [1, 9.5, 0]
-    radius_speed_accel: [0, 0.2, 0.35]
-    map_name: conveyor_map
-    localizer_main_sub: [1, 0]
-    storage_level_unload_load:
-      - [100, 100]
-  - id: 6
-    type: 1
-    pose: [1, 11, 0]
-    radius_speed_accel: [0.1, 0.35, 0.35]
-    map_name: conveyor_map
-    localizer_main_sub: [1, 0]
-    storage_level_unload_load:
-      - [100, 100]
   - id: 7
     type: 1
     pose: [2.5, 12, 0]
     radius_speed_accel: [0, 0.35, 0.35]
-    map_name: lrdemo
+    map_name: conveyor_map
     localizer_main_sub: [1, 0]
     storage_level_unload_load:
       - [100, 100]
@@ -60,7 +28,7 @@ list:
     type: 1
     pose: [2.5, 13, 0]
     radius_speed_accel: [0, 0.35, 0.35]
-    map_name: lrdemo
+    map_name: conveyor_map
     localizer_main_sub: [1, 0]
     storage_level_unload_load:
       - [100, 100]
@@ -68,21 +36,13 @@ list:
     type: 1
     pose: [2.5, 14, 0]
     radius_speed_accel: [0.3, 0.35, 0.35]
-    map_name: lrdemo
+    map_name: conveyor_map
     localizer_main_sub: [1, 0]
     storage_level_unload_load:
       - [100, 100]
   - id: 10
     type: 1
     pose: [2.5, 15, 0]
-    radius_speed_accel: [0, 0.35, 0.35]
-    map_name: lrdemo
-    localizer_main_sub: [1, 0]
-    storage_level_unload_load:
-      - [100, 100]
-  - id: 11
-    type: 1
-    pose: [4.6, 6.5, 0]
     radius_speed_accel: [0, 0.35, 0.35]
     map_name: conveyor_map
     localizer_main_sub: [1, 0]
@@ -92,21 +52,13 @@ list:
     type: 1
     pose: [6, 6.5, 0]
     radius_speed_accel: [0, 0.35, 0.35]
-    map_name: lrdemo
+    map_name: conveyor_map
     localizer_main_sub: [1, 0]
     storage_level_unload_load:
       - [100, 100]
   - id: 13
     type: 1
     pose: [6, 7.5, 0]
-    radius_speed_accel: [0, 0.35, 0.35]
-    map_name: conveyor_map
-    localizer_main_sub: [1, 0]
-    storage_level_unload_load:
-      - [100, 100]
-  - id: 14
-    type: 1
-    pose: [4.6, 7.5, 0]
     radius_speed_accel: [0, 0.35, 0.35]
     map_name: conveyor_map
     localizer_main_sub: [1, 0]
@@ -187,14 +139,6 @@ list:
   - id: 1003
     type: 0
     pose: [1.8, 7.5, 0]
-    radius_speed_accel: [0.3, 0.1, 0.35]
-    map_name: conveyor_map
-    localizer_main_sub: [1, 0]
-    storage_level_unload_load:
-      - [100, 100]
-  - id: 1004
-    type: 0
-    pose: [1.5, 8.5, 0]
     radius_speed_accel: [0.3, 0.1, 0.35]
     map_name: conveyor_map
     localizer_main_sub: [1, 0]
@@ -312,14 +256,6 @@ list:
     localizer_main_sub: [1, 0]
     storage_level_unload_load:
       - [100, 100]
-  - id: 1019
-    type: 0
-    pose: [6.5, 8.5, 0]
-    radius_speed_accel: [0.3, 0.1, 0.35]
-    map_name: conveyor_map
-    localizer_main_sub: [1, 0]
-    storage_level_unload_load:
-      - [100, 100]
   - id: 1020
     type: 0
     pose: [5.3, 7.5, 0]
@@ -361,7 +297,7 @@ list:
     storage_level_unload_load:
       - [100, 100]
   - id: 1025
-    type: 3
+    type: 0
     pose: [4, 10.5, 0]
     radius_speed_accel: [0, 0.35, 0.35]
     map_name: conveyor_map
