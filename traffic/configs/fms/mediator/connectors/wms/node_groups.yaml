@@ -1,0 +1,7 @@
+node_groups:
+  - name: "loading_zone"
+    nodes: [13, 14]
+  - name: "unloading_zone"
+    nodes: [11, 12]
+  - name: "parking_zone"
+    nodes: [1, 2, 3]
