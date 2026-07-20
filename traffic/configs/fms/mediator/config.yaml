@@ -4,7 +4,7 @@ connector_lists:
 - name: gui
   use: true
 - name: wms
-  use: false
+  use: true
 - name: remote_io
   use: false
 - name: manipulators
