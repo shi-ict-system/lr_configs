@@ -1,6 +1,6 @@
 capacity:           # % percent
-  max: 82
-  min: 45
+  max: 100
+  min: 10
   current: 70
 time_to_discharge:  # s second
   idle: 1800

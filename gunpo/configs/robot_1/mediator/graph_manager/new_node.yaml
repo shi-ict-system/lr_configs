@@ -1,7 +1,7 @@
 total_number: 43
 list:
   - id: 2
-    type: 1
+    type: 2
     pose: [2.5, 6.5, 0]
     radius_speed_accel: [0.1, 0.35, 0.35]
     map_name: conveyor_map
@@ -313,7 +313,7 @@ list:
     storage_level_unload_load:
       - [100, 100]
   - id: 1027
-    type: 2
+    type: 0
     pose: [3, 9, 0]
     radius_speed_accel: [0, 0.35, 0.35]
     map_name: conveyor_map
