@@ -1,0 +1,67 @@
+list:
+  comm_on: 
+    retry: 10
+    time_out: 2000
+
+  link: 
+    retry: 100
+    time_out: 2000
+
+  select_on: 
+    retry: 100
+    time_out: 2000
+
+  validate_on: 
+    retry: 100
+    time_out: 2000
+
+  request_on: 
+    retry: 500
+    time_out: 15000
+
+  start_on: 
+    retry: 100
+    time_out: 2000
+
+  charge_on: 
+    retry: 100
+    time_out: 2000
+
+  charging: 
+    retry: 100
+    time_out: 2000
+
+  complete_on: 
+    retry: 1000
+    time_out: 25000
+
+  start_off: 
+    retry: 100
+    time_out: 2000
+
+  complete_off: 
+    retry: 100
+    time_out: 2000
+ 
+  ready_off: 
+    retry: 100
+    time_out: 2000
+
+  validate_off: 
+    retry: 100
+    time_out: 2000
+
+  select_off: 
+    retry: 100
+    time_out: 2000
+
+  zero_hold: 
+    retry: 3000
+    time_out: 20000
+
+  comm_off: 
+    retry: 100
+    time_out: 2000
+
+
+

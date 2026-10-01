@@ -1,0 +1,11 @@
+list:
+- id: [100019, 100001]
+  keyword: fail_to_charge
+  level: error
+  timeout: 5
+  content: 충전 실패
+  description:
+    korean: 
+    english: 
+    chinese:
+    spanish: 
