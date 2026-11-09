@@ -1,3 +1,11 @@
-timer: 50 #ms
-thread_pool: 1 # >0
+# 로봇 측 (server::Driver)
+timer: 10
+thread_pool: 1
 port: 51001
+
+idle_timeout_ms: 3000       # 관제 요청이 없으면 세션 종료 → half-open 소켓 누적 방지
+io_timeout_ms: 1000         # 본문 수신 / 응답 송신 타임아웃
+max_connections: 2          # 초과 시 가장 오래된 세션을 끊고 새 연결 수용
+replace_same_peer: true     # 같은 IP 재접속(관제 재시작) 시 이전 세션 즉시 종료
+max_request_queue: 1000
+heartbeat_msg: "__hb__"
