@@ -1,3 +1,58 @@
-timer: 50 #ms
-thread_pool: 1 # >0
+# =====================================================================
+# 로봇 측 설정 — hatchery::drivers::tcp::server::Driver
+#   읽는 위치 : <config_dir>/server.yaml   (Driver("Robot", "<config_dir>"))
+#   로봇이 서버, FMS(관제)가 클라이언트. 모든 로봇에 같은 파일을 배포해도 된다.
+#
+# FMS clients.yaml 과 맞춰야 하는 값
+#   - port               = FMS server_list[].port
+#   - heartbeat_msg      : 양쪽 같은 문자열
+#   - idle_timeout_ms    > FMS heartbeat_interval_ms  (보통 3배 이상)
+#   - max_message_size   : 양쪽 같은 값 권장
+# =====================================================================
+
+# 앱 루프 주기(ms). 드라이버는 사용하지 않음 (기존 설정 파일 호환용으로 유지)
+timer: 10
+
+# 수신 대기 포트 (필수)
 port: 22003
+
+# 통신 I/O 스레드 수. 관제 연결이 1~2개이므로 1 이면 충분.
+# 요청 핸들러(set_request_handler)가 무거우면 2
+thread_pool: 1
+
+# 다음 요청을 기다리는 최대 시간 (0 = 끔).
+# FMS 가 비정상 종료해 남은 half-open 연결을 이 시간 뒤 정리한다.
+# FMS heartbeat_interval_ms(1000) 의 3배
+idle_timeout_ms: 3000
+
+# 요청 본문 수신 / 응답 송신 제한 시간 (0 = 끔)
+io_timeout_ms: 1000
+
+# 동시에 유지할 FMS 연결 수. 넘으면 가장 오래된 연결부터 끊음 (0 = 무제한)
+# FMS 1대 기준 2 : 재접속 순간 이전 연결과 잠시 겹쳐도 수용
+max_connections: 2
+
+# 같은 IP 에서 새로 접속하면 그 IP 의 이전 연결을 즉시 끊음 (FMS 재시작 대응)
+# FMS 가 한 로봇에 연결을 2개 이상 쓰는 구성(조회용·명령용 분리 등)이면 false
+replace_same_peer: true
+
+# get() 으로 가져가기 전까지 쌓아 둘 요청 수. 넘으면 오래된 것부터 버림 (0 = 무제한)
+max_request_queue: 1000
+
+# 요청 본문 최대 크기(byte). 넘으면 세션 종료 (1 MiB)
+max_message_size: 1048576
+
+# FMS heartbeat 문자열. 큐에 넣지 않고 빈 응답, 마지막 요청 시각만 갱신
+heartbeat_msg: "__hb__"
+
+# FMS 연결/끊김을 표준 출력에 기록 (IP·포트, 끊긴 원인, 연결 유지 시간, 요청 수)
+# 예) 2026-10-29 17:40:01.123 [Robot] client connected    #3 192.168.10.2:41822 -> 192.168.10.101:5000 (clients=1)
+#     2026-10-29 17:45:11.456 [Robot] client disconnected #3 192.168.10.2:41822 -> 192.168.10.101:5000 reason=IdleTimeout (no progress for 3000ms) duration=310.3s requests=301 (clients=0)
+log_sessions: true
+
+# FMS 요청이 이 시간 안에 없으면 "관제 통신 끊김" 으로 판단 (get_status().controller_alive, is_controller_alive())
+# FMS heartbeat_interval_ms(1000) 보다 길게
+controller_timeout_ms: 1500
+
+# get_status() 에 담을 최근 연결/끊김 이벤트 수
+status_history: 20
