@@ -1,0 +1,11 @@
+protocol:
+  device: /dev/ttyUSB0
+  baud_rate: 19200
+  character_size: 8
+  parity: none
+  stop_bits: one
+  flow_control: none
+
+time_out: #ms
+  write: 200
+  read: 300
