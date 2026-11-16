@@ -1,64 +1,98 @@
-timer: 20 #ms
-thread_pool: 6 # >0
+# =====================================================================
+# FMS(관제) 측 설정 — hatchery::drivers::tcp::client::Driver
+#   읽는 위치 : <config_dir>/clients.yaml   (Driver("FMS", "<config_dir>"))
+#   관제가 클라이언트, 로봇이 서버. 로봇 1대당 TCP 연결 1개를 유지한다.
+#
+# 로봇 server.yaml 과 맞춰야 하는 값
+#   - heartbeat_msg          : 양쪽 같은 문자열
+#   - heartbeat_interval_ms  < 로봇 idle_timeout_ms  (보통 1/3 이하)
+#   - server_list[].port     = 로봇 port
+#   - max_message_size       : 양쪽 같은 값 권장
+# =====================================================================
+
+# 앱 루프 주기(ms). 드라이버는 사용하지 않음 (기존 설정 파일 호환용으로 유지)
+timer: 10
+
+# 통신 I/O 스레드 수. 로봇 수십 대까지는 1~2 로 충분
+thread_pool: 5
+
+# ---------------------------------------------------------------------
+# 통신 옵션 (전체 로봇 공통 기본값) — server_list 항목에서 로봇별로 덮어쓸 수 있음
+# ---------------------------------------------------------------------
+
+# 연결 시도 1회 제한 시간. 케이블 단절 시 OS 기본(약 2분) 대신 이 시간에 실패 처리
+connect_timeout_ms: 1000
+
+# 요청 1건(송신 ~ 응답 수신 완료) 제한 시간. 초과 시 Timeout 후 연결을 끊고 재연결
+# 로봇의 최대 처리 시간 + 네트워크 왕복 시간보다 여유 있게
+request_timeout_ms: 500
+
+# 재연결 대기 시간 : 실패마다 2배 (500 → 1000 → 2000 → 4000 → 5000 ...), 연결 성공 시 처음 값으로
+reconnect_min_ms: 500
+reconnect_max_ms: 5000
+
+# 요청이 없을 때 생존 확인 주기 (0 = 끔). 로봇 idle_timeout_ms(3000) 보다 짧게
+heartbeat_interval_ms: 1000
+heartbeat_msg: "__hb__"
+
+# 응답 대기 중 쌓아 둘 다음 요청 수. 넘으면 가장 오래된 요청을 Dropped (0 = 무제한)
+# 주기적 상태 조회 위주면 2~4
+max_pending: 4  
+
+# 대기 큐에서 이보다 오래 기다린 요청은 보내지 않고 Expired (0 = 무제한)
+max_queue_wait_ms: 1000
+
+# 응답 본문 최대 크기(byte). 넘으면 ProtocolError 후 재연결 (1 MiB)
+max_message_size: 1048576
+
+# ---------------------------------------------------------------------
+# 로그 (각 줄 앞에 시각 "YYYY-MM-DD HH:MM:SS.mmm [FMS]" 이 붙음)
+#   robot 1 connected      192.168.10.101:5000 local=192.168.10.2:41822 attempt=3 downtime=12.5s
+#   robot 1 disconnected   192.168.10.101:5000 local=192.168.10.2:41822 reason=RequestTimeout (no response in 500ms) uptime=4.3s requests=42/41 retry_in=0.5s
+#   robot 1 connect failed 192.168.10.101:5000 reason=ConnectError (Connection refused) attempt=1 down=1.3s retry_in=1.0s
+#   robot 2 request Dropped seq=118 (pending queue full)
+#   local 포트 = 로봇 서버 로그의 "client connected #N 192.168.10.2:41822" 포트 → 양쪽 로그 대조용
+#   requests=보낸 수/정상 응답 수 (heartbeat 포함)
+# ---------------------------------------------------------------------
+
+# 로봇 접속 / 접속 실패 / 끊김 로그 --> 기능 삭제함.
+log_links: true
+
+# 로봇이 꺼져 있으면 재시도마다 접속 실패가 나므로, 첫 실패·원인이 바뀐 실패·N번째 실패만 기록 (1 = 매번)
+# reconnect_max_ms 5000 기준 10 이면 실패가 이어질 때 약 50초에 한 줄 --> 기능 삭제.
+connect_fail_log_interval: 10
+
+# 대기 큐 넘침(Dropped)·대기 시간 초과(Expired) 요청 로그. 끊김 중 실패(NotConnected 등)는 기록 안 함
+log_request_errors: true
+
+# get_status() 에 담을 로봇별 최근 이벤트 수
+status_history: 20
+
+# ---------------------------------------------------------------------
+# 로봇 목록
+#   id   : 로봇 식별자 (Driver::set({id, msg}) 의 id 와 같아야 함, 중복 불가)
+#   use  : false 면 연결하지 않음 (생략 시 true)
+#   ip   : 숫자 IP 만 가능 (호스트 이름 불가)
+#   port : 로봇 server.yaml 의 port
+#   그 밖에 위 통신 옵션 키를 넣으면 그 로봇에만 적용
+# ---------------------------------------------------------------------
 server_list:
-- id: [0,1]
-  use: true
-  ip: 127.0.0.1
-  # ip: 192.168.100.101
-  port: 22001
-  period: 30 #ms
-- id: [0,2]
-  use: true
-  ip: 127.0.0.1
-  port: 22002
-  period: 30 #ms
-- id: [0,3]
-  use: true
-  ip: 127.0.0.1
-  port: 22003
-  period: 30 #ms
-# - id: [0,4]
-#   use: true
-#   ip: 127.0.0.1
-#   port: 22004
-#   period: 30 #ms
-# - id: [0,5]
-#   use: true
-#   ip: 127.0.0.1
-#   port: 22005
-#   period: 30 #ms
-# - id: [0,6]
-#   use: true
-#   ip: 127.0.0.1
-#   port: 22006
-#   period: 30 #ms
-# - id: [0,7]
-#   use: true
-#   ip: 127.0.0.1
-#   port: 22007
-#   period: 30 #ms
-# - id: [0,8]
-#   use: true
-#   ip: 127.0.0.1
-#   port: 22008
-#   period: 30 #ms
-# - id: [0,9]
-#   use: true
-#   ip: 127.0.0.1
-#   port: 22009
-#   period: 30 #ms
-# - id: [0,10]
-#   use: true
-#   ip: 127.0.0.1
-#   port: 22010
-#   period: 30 #ms
-# - id: [0,11]
-#   use: true
-#   ip: 127.0.0.1
-#   port: 22011
-#   period: 30 #ms
-# - id: [0,12]
-#   use: true
-#   ip: 127.0.0.1
-#   port: 22012
-#   period: 30 #ms
+  - id: [0,1]
+    use: true
+    ip: 127.0.0.1
+    port: 22001
+
+  - id: [0,2]
+    use: true
+    ip: 127.0.0.1
+    port: 22002
+    # 로봇별 override 가능
+    # 무선 음영 구역을 지나는 로봇 : 응답 여유를 더 줌
+    request_timeout_ms: 1000
+    connect_timeout_ms: 2000
+
+  - id: [0,3]
+    use: true
+    ip: 127.0.0.1
+    port: 22003
+
