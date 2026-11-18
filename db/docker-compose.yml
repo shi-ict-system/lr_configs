@@ -1,0 +1,22 @@
+services:
+  fms_postgres:
+    image: timescale/timescaledb:latest-pg16
+    container_name: fms_postgres
+    restart: always
+    environment:
+      POSTGRES_USER: ${LR_DB_USER:-lr}
+      POSTGRES_PASSWORD: ${LR_DB_PASSWORD:-lr1234}
+      POSTGRES_DB: ${LR_DB_NAME:-loadrunner_fms}
+    ports:
+      - "${LR_DB_PORT:-5432}:5432"
+    volumes:
+      # Keep database data outside lr_configs so config packaging scripts never tar live PGDATA.
+      - /var/lib/loadrunner/pgdata:/var/lib/postgresql/data
+      # Share the host socket directory so app_fms connects over Unix domain sockets without TCP overhead.
+      - /var/run/postgresql:/var/run/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${LR_DB_USER:-lr} -d ${LR_DB_NAME:-loadrunner_fms}"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+      start_period: 5s
